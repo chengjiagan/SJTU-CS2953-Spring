@@ -6,7 +6,7 @@ Get familar with xv6's system calls, use them, and create new one!
 
 Follow [this guide](https://pdos.csail.mit.edu/6.828/2022/tools.html) to install the required tools for labs.
 
-It's highly recommended to finish the labs under Linux environment. You can use **Windows Subsystem for Linux** (on Windows) or **Virtual Machine** (on macOS). It's not recommended to install the RISC-V toolchain on macOS, bacause it will take a lot of time.
+It's highly recommended to finish the labs under Linux environment. You can use **Windows Subsystem for Linux** (on Windows) or **Virtual Machine** (on macOS). It's not recommended to install the RISC-V toolchain on macOS, because it will take a lot of time.
 
 Now download codes for the labs using `git`:
 
@@ -18,7 +18,7 @@ $ cd SJTU-CS2953-Spring && make clean
 
 ## Git
 
-Our labs use `git`. Any modification you make should be commited to `git` so that it would be uploaded by our scripts. You can use the following commands to commit the modified files:
+Our labs use `git`. Any modification you make should be committed to `git` so that it would be uploaded by our scripts. You can use the following commands to commit the modified files:
 
 ```sh
 $ git add <files being modified>

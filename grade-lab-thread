@@ -66,5 +66,9 @@ def test_barrier():
 def test_time():
     check_time()
 
+@test(1, "report")
+def test_report():
+    check_answers("report.txt", 5)
+
 run_tests()
 

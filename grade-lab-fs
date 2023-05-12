@@ -38,4 +38,8 @@ def test_usertests():
 def test_time():
     check_time()
 
+@test(0, "report")
+def test_report():
+    check_answers('report.txt')
+
 run_tests()

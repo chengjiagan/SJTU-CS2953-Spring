@@ -374,12 +374,9 @@ handin-check:
 		test "$$r" = y; \
 	fi
 
-UPSTREAM := $(shell git remote -v | grep -m 1 "xv6-labs-2022" | awk '{split($$0,a," "); print a[1]}')
+UPSTREAM := $(shell git remote -v | grep -m 1 "SJTU-CS2953-Spring" | awk '{split($$0,a," "); print a[1]}')
 
 tarball: handin-check
-	git archive --format=tar HEAD | gzip > lab-$(LAB)-handin.tar.gz
-
-tarball-pref: handin-check
 	@SUF=$(LAB); \
 	git archive --format=tar HEAD > lab-$$SUF-handin.tar; \
 	git diff $(UPSTREAM)/$(LAB) > /tmp/lab-$$SUF-diff.patch; \
@@ -387,24 +384,5 @@ tarball-pref: handin-check
 	gzip -c lab-$$SUF-handin.tar > lab-$$SUF-handin.tar.gz; \
 	rm lab-$$SUF-handin.tar; \
 	rm /tmp/lab-$$SUF-diff.patch; \
-
-myapi.key:
-	@echo Get an API key for yourself by visiting $(WEBSUB)/
-	@read -p "Please enter your API key: " k; \
-	if test `echo "$$k" |tr -d '\n' |wc -c` = 32 ; then \
-		TF=`mktemp -t tmp.XXXXXX`; \
-		if test "x$$TF" != "x" ; then \
-			echo "$$k" |tr -d '\n' > $$TF; \
-			mv -f $$TF $@; \
-		else \
-			echo mktemp failed; \
-			false; \
-		fi; \
-	else \
-		echo Bad API key: $$k; \
-		echo An API key should be 32 characters long.; \
-		false; \
-	fi;
-
 
 .PHONY: handin tarball tarball-pref clean grade handin-check
